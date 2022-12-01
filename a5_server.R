@@ -3,7 +3,7 @@ library(dplyr)
 library(plotly)
 
 # loading data...
-df <- read.csv("/Users/AronaCho_1/Documents/info201/assignments/a5-aronaacho/co2-data/owid-co2-data.csv")
+df <- read.csv("owid-co2-data.csv")
 
 #  Datawrangling...
 trade_years <- df %>% 
