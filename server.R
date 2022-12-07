@@ -1,6 +1,7 @@
 #  server
 library(dplyr)
 library(plotly)
+library(ggplot2)
 
 # loading data...
 df <- read.csv("owid-co2-data.csv")
@@ -31,12 +32,15 @@ trade_years <- trade_years [141:171, ]
 
 server <- function(input, output) {
   output$scatter <- renderPlotly({
-    co2_plot <- ggplot(trade_years) +
-      geom_point(mapping = aes_string(x = trade_years$year, y = input$co2_cols),
+    co2_plot <- ggplot(trade_years, mapping = aes_string(x = trade_years$year, y = input$co2_cols)) +
+      geom_point(
                  color = "#00BFC4") +
-          labs(x = "Year", y = "CO2 in Rate Percentage (%)")
-    co2_plot
+          labs(x = "Year", y = "Annual Net Carbon Emissions")
+    if(input$trendline_box) {
+      co2_plot <- co2_plot +
+        geom_smooth()
+    }
+    return(co2_plot)
   })
 }
 
-  
