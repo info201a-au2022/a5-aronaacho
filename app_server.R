@@ -2,6 +2,7 @@
 library(dplyr)
 library(plotly)
 library(ggplot2)
+library(shiny)
 
 # loading data...
 df <- read.csv("owid-co2-data.csv")
@@ -22,11 +23,21 @@ trade_years <- trade_years [141:171, ]
     select(year, trade_co2) %>% 
     filter(trade_co2 == max(trade_co2)) %>% 
     pull(trade_co2)
+  # Year of highest imports
+  max_net_year <- trade_years %>% 
+    select(year, trade_co2) %>% 
+    filter(trade_co2 == max(trade_co2)) %>% 
+    pull(year)
   # MT of lowest imports
   min_net <- trade_years %>% 
     select(year, trade_co2) %>% 
     filter(trade_co2 == min(trade_co2)) %>% 
     pull(trade_co2)
+  # Year of lowest imports
+  min_net_year <- trade_years %>% 
+    select(year, trade_co2) %>% 
+    filter(trade_co2 == min(trade_co2)) %>% 
+    pull(year)
 
 #  shiny server
 

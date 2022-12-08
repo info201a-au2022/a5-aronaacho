@@ -1,10 +1,11 @@
 #  app
-library(shiny)
-library(plotly)
 library(dplyr)
+library(plotly)
+library(ggplot2)
+library(shiny)
 
-source("ui.R")
-source("server.R")
+source("app_server.R")
+source("app_ui.R")
 
-shinyApp(ui, server)
+shinyApp(ui = ui, server = server)
 
