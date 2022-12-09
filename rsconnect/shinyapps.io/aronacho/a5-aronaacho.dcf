@@ -5,10 +5,10 @@ account: aronacho
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 7777092
-bundleId: 6608149
+bundleId: 6614169
 url: https://aronacho.shinyapps.io/a5-aronaacho/
-when: 1670465791.58332
-lastSyncTime: 1670465791.58334
+when: 1670562972.17197
+lastSyncTime: 1670562972.17198
 asMultiple: FALSE
 asStatic: FALSE
 ignoredFiles: algeriamap.png|LICENSE|README.md
